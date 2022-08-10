@@ -1,0 +1,19 @@
+base_url: 'http://taskana-rest:8080/taskana/api/v1'
+virtual_users: 4
+warmup_duration: 10
+
+resources:
+  - name: Get workbasket access items
+    iterations: 200
+    request:
+      url: /workbasket-access-items
+      method: GET
+      headers:
+        Authorization: Basic YWRtaW46YWRtaW4=
+  - name: Get classifications
+    iterations: 150
+    request:
+      url: /classifications/?domain=DOMAIN_A&type=TASK&sort-by=KEY&order=ASCENDING
+      method: GET
+      headers:
+        Authorization: Basic YWRtaW46YWRtaW4=

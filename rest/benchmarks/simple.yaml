@@ -1,0 +1,31 @@
+base_url: 'https://jsonplaceholder.typicode.com'
+virtual_users: 4
+warmup_duration: 10
+
+resources:
+  - name: Get Posts
+    iterations: 10
+    request:
+      url: /posts
+      method: GET
+      headers:
+        Connection: Keep-Alive
+  - name: Get Albums
+    iterations: 12
+    request:
+      url: /albums
+      method: GET
+      headers:
+        Connection: Keep-Alive
+  - name: Add new post
+    iterations: 1
+    request:
+      url: /posts
+      method: POST
+      headers:
+        Connection: Keep-Alive
+        Content-Type: application/json; charset=UTF-8
+      body:
+        title: "TASKANA Test Title"
+        body: "TASKANA Test Body"
+        userId: 1

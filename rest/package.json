@@ -1,0 +1,55 @@
+{
+  "name": "taskana-lasttests",
+  "version": "0.1.0",
+  "description": "Benchmarking suite for the REST layer of the TASKANA task management library.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "lint": "xo",
+    "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics --release",
+    "install": "npm run build",
+    "test:node": "xo && nyc mocha ./tests/* --exit",
+    "test:rust": "cargo test",
+    "start": "node index.js"
+  },
+  "author": "knht",
+  "license": "MIT",
+  "devDependencies": {
+    "cargo-cp-artifact": "^0.1.6",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
+    "xo": "^0.51.0"
+  },
+  "xo": {
+    "space": 4,
+    "ignores": [
+      "tests/**"
+    ],
+    "rules": {
+      "new-cap": 0,
+      "arrow-parens": 0,
+      "unicorn/filename-case": 0,
+      "unicorn/no-for-loop": 0,
+      "unicorn/prefer-module": 0,
+      "unicorn/no-static-only-class": 0,
+      "unicorn/text-encoding-identifier-case": 0,
+      "unicorn/numeric-separators-style": 0,
+      "unicorn/no-useless-promise-resolve-reject": 0,
+      "object-curly-spacing": 0,
+      "no-negated-condition": 0,
+      "no-trailing-spaces": 0,
+      "n/prefer-global/process": 0,
+      "no-await-in-loop": 0,
+      "complexity": 0,
+      "curly": 0,
+      "max-params": [
+        "warn",
+        5
+      ]
+    }
+  },
+  "dependencies": {
+    "yaml": "^2.1.1"
+  }
+}

@@ -1,0 +1,13 @@
+base_url: 'http://localhost:3000'
+virtual_users: 4
+warmup_duration: 10
+
+resources:
+  - name: Local Test for Headers implementation
+    iterations: 30
+    request:
+      url: /api/headertest
+      method: GET
+      headers:
+        Connection: Keep-Alive
+        Authorization: Basic YWRtaW46YWRtaW4=
